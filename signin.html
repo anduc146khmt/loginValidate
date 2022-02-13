@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./validator.css">
+</head>
+<body>
+    <header>
+        <div class="header__content">
+            <a href="./signin.html" target="_blank"><button type="button" class="btn blue">Sign in</button></a>
+            <a href="/Sign up/index.html"><button type="button" class="btn green">Sign up</button></a>
+        </div>
+    </header>
+    <div class="form__validation">
+        <form action="" method="POST" id="form-1" class="form">
+            <div class="form__header">
+                <h2>Sign in</h2>
+                <p>Log in your account. It's free and only takes a minute.</p>
+            </div>
+            <div class="form__group email"></div>
+            <div class="form__group password"></div>
+            <button class="form__submit">Sign In</button>
+        </form>
+    </div>
+    <script src="./validator.js"></script>
+    <script>
+        Validator({
+            form: '#form-2',
+            input: '.form__input',
+            message : '.form__message',
+            submit : '.form__submit',
+            optional: '.generatorPasswords',
+            rules: [
+                Validator.isRequired('#email','Please fill in this field'),
+                Validator.isRequired('#password','Please fill in this field'),
+                Validator.isEmail('#email', 'Invalid email address. Please try again'),
+                Validator.isStrongPassword('#password', 6),
+            ],
+            getOutput : function(data) {
+                console.log(data);
+                return data;
+            }
+        })
+    </script>
+</body>
+</html>
